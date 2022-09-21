@@ -27,8 +27,13 @@
 -->
 <script>
   "use strict";
+  const myNumber = prompt('Введите положительное целое число: ')
+  const hundreds = parseInt(myNumber % 1000 / 100)
+  const dozens = parseInt(myNumber % 100 / 10)
+  const units = parseInt(myNumber % 10)
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  alert("В числе " + myNumber + " количество сотен: " + hundreds +
+          ", десятков: " + dozens + ", единиц: " + units)
 </script>
 </body>
 </html>
