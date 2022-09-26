@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+    "use strict";
+
+    /**
+     * Возвращает сумму a + b.
+     *
+     * @param {number} a число, первое слагаемое.
+     * @param {number} b число, второе слагаемое.
+     * @return {number} a + b , сумма чисел a + b.
+     */
+    function sum(a, b) {
+        return a + b;
+    }
+
+    /**
+     * Возвращает разность чисел 'a' и 'b', где уменьшаемое число больше вычитаемого.
+     *
+     * @param {number} a число.
+     * @param {number} b число.
+     * @return {number} число, разность чисел 'a' и 'b'.
+     */
+    function difference(a, b) {
+        if (a > b) {
+            return a - b;
+        } else if (b > a) {
+            return b - a;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Возвращает произведение чисел a * b.
+     *
+     * @param {number} a число, множимое.
+     * @param {number} b число, множитель.
+     * @return {number} a * b , умножение чисел a * b.
+     */
+    function multiplication(a, b) {
+        return a * b;
+    }
+
+    /**
+     * Возвращает деление чисел a / b.
+     *
+     * @param {number} a число, делимое.
+     * @param {number} b число, делитель.
+     * @return {number} a / b , деление чисел a / b.
+     */
+    function division(a, b) {
+        if (b !== 0) {
+            return a / b;
+        } else {
+            return 'на ноль делить нельзя';
+        }
+    }
+
+    console.log(sum(2, 5));
+    console.log(difference(2, 5));
+    console.log(difference(5, 5));
+    console.log(multiplication(10, 4));
+    console.log(division(5, 2));
+    console.log(division(5, 0));
+
+</script>
+</body>
+</html>
