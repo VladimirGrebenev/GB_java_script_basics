@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
+    <meta charset="UTF-8">
+    <title>Homework</title>
 </head>
 <body>
 <!--
@@ -17,9 +17,20 @@
 10 – четное число
 -->
 <script>
-  "use strict";
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+    for (let i = 0; i < 11; i++) {
+        if (i === 0) {
+            console.log(`${i} - это ноль`);
+            continue;
+        }
+        if (i % 2 === 0) {
+            console.log(`${i} - это чётное число`);
+            continue;
+        }
+        console.log(`${i} - это нечётное число`);
+    }
+
 </script>
 </body>
 </html>

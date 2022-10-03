@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
+    <meta charset="UTF-8">
+    <title>Homework</title>
 </head>
 <body>
 <!--
@@ -12,24 +12,27 @@
 метод forEach.
 -->
 <script>
-  "use strict";
+    "use strict";
 
-  const products = [
-    {
-      id: 3,
-      price: 200,
-    },
-    {
-      id: 4,
-      price: 900,
-    },
-    {
-      id: 1,
-      price: 1000,
-    },
-  ];
+    const products = [
+        {
+            id: 3,
+            price: 200,
+        },
+        {
+            id: 4,
+            price: 900,
+        },
+        {
+            id: 1,
+            price: 1000,
+        },
+    ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+    products.forEach((element) => {
+        element.price = element.price - (element.price / 100 * 15)
+    })
+
 </script>
 </body>
 </html>
