@@ -50,7 +50,17 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  function PostES5(authorName, postText, timeLastChange) {
+    this.authorName = authorName;
+    this.postText = postText;
+    this.timeLastChange = new Date ().toString();
+  }
+
+  const newMaskPost = new PostES5('Илон', 'Я тут подумал...');
+  console.log(newMaskPost.authorName);
+  console.log(newMaskPost.postText);
+  console.log(newMaskPost.timeLastChange);
+
 </script>
 </body>
 </html>
