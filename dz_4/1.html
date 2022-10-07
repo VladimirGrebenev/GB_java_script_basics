@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+<script>
+    "use strict";
+
+    function ProductES5(title, price) {
+        if (title === '') {
+            throw new Error('title cannot be blank');
+        }
+        this.title = title;
+        if (price <= 0) {
+            throw new Error('we need to make money, your price not good');
+        }
+        this.price = price;
+    }
+
+    ProductES5.prototype.make25Discount = function () {
+        this.price = this.price - (this.price / 100 * 25);
+    }
+
+    class ProductES6 {
+        constructor(title, price) {
+            if (title === '') {
+                throw new Error('title cannot be blank');
+            }
+            this.title = title;
+            if (price <= 0) {
+                throw new Error('we need to make money, your price not good');
+            }
+            this.price = price;
+        }
+
+        make25Discount() {
+            this.price = this.price - (this.price / 100 * 25);
+        }
+    }
+
+    const gas = new ProductES5('Газ РФ', 3000);
+    console.log(`цена на ${gas.title} равна ${gas.price}`);
+    gas.make25Discount(); // делаем скидку 25%
+    console.log(`цена на ${gas.title} со скидкой 25% равна ${gas.price}`);
+
+    const oil = new ProductES6('Нефть РФ', 200);
+    console.log(`цена на ${oil.title} равна ${oil.price}`);
+    oil.make25Discount(); // делаем скидку 25%
+    console.log(`цена на ${oil.title} со скидкой 25% равна ${oil.price}`);
+
+</script>
+</body>
+</html>
