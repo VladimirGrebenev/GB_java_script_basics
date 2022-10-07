@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
+    <meta charset="UTF-8">
+    <title>Homework</title>
 </head>
 <body>
 <!--
@@ -29,9 +29,31 @@
 можно прочитать как "от нуля до 999 включительно".
 -->
 <script>
-  "use strict";
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+    class DigitsOfNumber {
+        constructor(units, dozens, hundreds) {
+            this.units = units;
+            this.dozens = dozens;
+            this.hundreds = hundreds;
+        }
+    }
+
+    function getDigitsOfNumber(myNumber) {
+        if (myNumber >= 0 && myNumber < 1000 && Number.isInteger(myNumber)) {
+            const hundreds = parseInt(myNumber % 1000 / 100);
+            const dozens = parseInt(myNumber % 100 / 10);
+            const units = parseInt(myNumber % 10);
+            return new DigitsOfNumber(units, dozens, hundreds);
+        }
+        return {};
+    }
+
+
+    console.log(getDigitsOfNumber(999));
+    console.log(getDigitsOfNumber(1001));
+    console.log(getDigitsOfNumber(55.5));
+
 </script>
 </body>
 </html>
