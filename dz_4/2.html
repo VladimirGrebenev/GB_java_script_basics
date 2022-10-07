@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
+    <meta charset="UTF-8">
+    <title>Homework</title>
 </head>
 <body>
 <!--
@@ -48,18 +48,72 @@
 4. Если непонятно условие - задайте вопрос.
 -->
 <script>
-  "use strict";
+    "use strict";
 
-  function PostES5(authorName, postText, timeLastChange) {
-    this.authorName = authorName;
-    this.postText = postText;
-    this.timeLastChange = new Date ().toString();
-  }
+    function PostES5(authorName, postText, timeLastChange) {
+        this.authorName = authorName;
+        this.postText = postText;
+        this.timeLastChange = new Date().toString();
+    }
 
-  const newMaskPost = new PostES5('Илон', 'Я тут подумал...');
-  console.log(newMaskPost.authorName);
-  console.log(newMaskPost.postText);
-  console.log(newMaskPost.timeLastChange);
+    PostES5.prototype.edit = function (postText) {
+        this.postText = postText;
+        this.timeLastChange = new Date().toString();
+    }
+
+    class PostES6 {
+        constructor(authorName, postText) {
+            this.authorName = authorName;
+            this.postText = postText;
+            this.timeLastChange = new Date().toString();
+        }
+
+        edit(postText) {
+            this.postText = postText;
+            this.timeLastChange = new Date().toString();
+        }
+    }
+
+    function AttachedPostES5(authorName, postText, timeLastChange) {
+        PostES5.call(this, authorName, postText, timeLastChange);
+        this.highlighted = false;
+    }
+
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+        this.highlighted = true;
+    }
+
+    class AttachedPostES6 extends PostES6 {
+        constructor(authorName, postText, timeLastChange) {
+            super(authorName, postText, timeLastChange);
+            this.highlighted = false;
+        }
+
+        makeTextHighlighted() {
+            this.highlighted = true;
+        }
+    }
+
+
+    const maskPost = new PostES5('Илон', 'Я тут подумал...');
+    console.log(maskPost.authorName, maskPost.postText, maskPost.timeLastChange);
+    maskPost.edit('Я передумал :)');
+    console.log(maskPost.authorName, maskPost.postText, maskPost.timeLastChange);
+
+    const twit = new PostES6('Вова', 'C юбилеем президента');
+    console.log(twit.authorName, twit.postText, twit.timeLastChange);
+    twit.edit('70 лет президенту РФ');
+    console.log(twit.authorName, twit.postText, twit.timeLastChange);
+
+    const newP = new AttachedPostES5('Zorro', 'Привет мир')
+    console.log(newP.authorName, newP.postText, newP.timeLastChange, newP.highlighted);
+    newP.makeTextHighlighted()
+    console.log(newP.authorName, newP.postText, newP.timeLastChange, newP.highlighted);
+
+    const newP2 = new AttachedPostES6('Будулай', 'Шашлык машлык')
+    console.log(newP2.authorName, newP2.postText, newP2.timeLastChange, newP2.highlighted);
+    newP2.makeTextHighlighted()
+    console.log(newP2.authorName, newP2.postText, newP2.timeLastChange, newP2.highlighted);
 
 </script>
 </body>
