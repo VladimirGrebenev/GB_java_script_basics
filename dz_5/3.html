@@ -84,8 +84,14 @@
     Необходимо использовать делегирование.
     */
 
-    // нужно посмотреть видос
-
+    const tagsEl = document.querySelectorAll('*');
+    const handler = function (event) {
+        event.stopPropagation();
+        if (event.target.className === 'super_element') {
+            console.log(`Класс "super_element" присутствует в элементе ${event.target.tagName}`);
+        }
+    }
+    tagsEl.forEach(item => item.addEventListener('click', handler));
 
     /*
     4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
