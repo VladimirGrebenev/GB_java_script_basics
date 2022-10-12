@@ -35,7 +35,7 @@
 <br>
 
 <ul>
-    <li>
+    <li class="wrap">
         <button>Кнопка 1</button>
     </li>
     <li>
@@ -86,9 +86,10 @@
 
     const tagsEl = document.querySelectorAll('*');
     const handler = function (event) {
-        event.stopPropagation();
+        // event.stopPropagation(); // замутил потому что мешает выполнению задания 5
         if (event.target.className === 'super_element') {
-            console.log(`Класс "super_element" присутствует в элементе ${event.target.tagName}`);
+            console.log(`Класс "super_element" \
+присутствует в элементе ${event.target.tagName.toLowerCase()}`);
         }
     }
     tagsEl.forEach(item => item.addEventListener('click', handler));
@@ -98,6 +99,12 @@
     "Вы навели на textarea."
      */
 
+    const textareaEl = document.querySelector('textarea');
+    const textHover = function (event) {
+        console.log(`Вы навели на ${event.target.tagName.toLowerCase()}.`);
+    }
+
+    textareaEl.addEventListener('mouseover', textHover);
 
     /*
     5. Необходимо повесить событие клика на тег ul. В обработчике события в
@@ -107,6 +114,14 @@
     Необходимо использовать делегирование.
      */
 
+    document.querySelector('ul').addEventListener('click', event => {
+        if (event.target.tagName !== 'BUTTON') {
+            return;
+        }
+        const buttonText = event.target.textContent;
+        console.log(buttonText);
+    })
+
 
     /*
     6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
@@ -114,6 +129,10 @@
     Ответ необходимо написать здесь же, под этим комментарием, своими словами.
     */
 
+    /* не знаю, у меня не так рабоает, но в задании 3 пришлось
+    замутить event.stopPropagation(), потому что он вешал событие click на все div'ы
+    и получается клик больше нигде не работал, то есть не срабатывал на button.
+     */
 
     /*
     7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
