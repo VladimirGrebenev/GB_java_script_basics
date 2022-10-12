@@ -138,6 +138,11 @@
     7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
      */
 
+    const liEls = document.querySelectorAll('li');
+    for (let i = 1; i < liEls.length; i += 2) {
+        liEls[i].style.background = 'blue';
+    }
+
 </script>
 </body>
 </html>
