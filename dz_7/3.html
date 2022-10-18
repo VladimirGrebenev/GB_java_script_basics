@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
+    <meta charset="UTF-8">
+    <title>Homework</title>
 </head>
 <body>
 <!--
@@ -15,22 +15,24 @@
 данного набора цифр.
 -->
 <script>
-  "use strict";
+    "use strict";
 
-  /**
-   * Функция перемещает цифры получая наибольшее число.
-   * @param {number} n - Число, из цифр которого нужно составить наибольшее
-   * возможное число с теми же цифрами.
-   * @returns {number} - Набольшее число из набора цифр числа, переданного в
-   * параметр "n"
-   */
-  function descendingOrder(n) {
+    /**
+     * Функция перемещает цифры получая наибольшее число.
+     * @param {number} n - Число, из цифр которого нужно составить наибольшее
+     * возможное число с теми же цифрами.
+     * @returns {number} - Набольшее число из набора цифр числа, переданного в
+     * параметр "n"
+     */
+    function descendingOrder(n) {
+        return +n.toString().split('').sort((a, b) => b - a).join('');
+        // return +Array.from(n.toString(), Number).sort((a, b) => b - a).join('');
 
-  }
+    }
 
-  console.log(descendingOrder(42145)); // 54421
-  console.log(descendingOrder(145263)); // 654321
-  console.log(descendingOrder(123456789)); // 987654321
+    console.log(descendingOrder(42145)); // 54421
+    console.log(descendingOrder(145263)); // 654321
+    console.log(descendingOrder(123456789)); // 987654321
 </script>
 </body>
 </html>
