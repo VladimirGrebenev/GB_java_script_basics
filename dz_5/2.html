@@ -45,7 +45,13 @@
      */
 
     const btnEl = document.querySelector('.btn');
-    btnEl.classList.remove('btn-secondary');
+    if (btnEl.classList.contains('btn-secondary')) {
+        btnEl.classList.remove('btn-secondary');
+    }
+    else {
+        btnEl.classList.add('btn-secondary');
+    }
+
 
     /*
     3. Необходимо удалить класс "dropdown-menu" у элемента, у которого
